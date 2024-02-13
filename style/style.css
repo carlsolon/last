@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Mochiy Pop One', sans-serif;
+    background-color: #f2acac;
+}
+input#open{
+    display: none;
+}
+.valintines-day-card{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: .3s;
+}
+.card-font{
+    position: relative;
+    background-color: #fff0f3;
+    width:100px;
+    height: 100px;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 30px 0 50px rgba(0,0,0,.3);
+    transition: .3;
+}
+.card-font:before{
+    content:"";
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-color: #d04e4e;
+    top:5px;
+    left: 5px;
+    
+}
+.card-inside{
+    position: absolute;
+    background-color: #fff0f3;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+    left: 0;
+    top:0;
+    box-shadow: inset 20px 5px 3px rgba(0,0,0,.22),30px 5px 30px rgba(0,0,0,.1);
+}
+.open{
+    position: absolute;
+    width: 100px;
+    height:90px;
+    left: 0;
+    top:0;
+    background-color: transparent;
+    z-index:7;
+    cursor: pointer;
+    
+}
+#open:checked ~ .card-font{
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,.1);
+}
+#open:checked ~ .card-font:before{
+    z-index:5;
+    background-color: #fff0f3;
+    width:100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    box-shadow: inset 100px 20px 100px rgba(0,0,0,.1), 30px 0 50px rgba(0,0,0,.1) ;
+}
+.note{
+    position:relative ;
+    top: 20px ;
+    left: 25px ;
+    height:65px ;
+    width: 55px;
+    color:#333 ;
+    background-color: #fff0f3;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.1));
+    animation: beat 2s 2s;
+    
+}
+.note::before, .note::after{
+    content:"";
+    position: absolute;
+    background-color: #ba1c1c;
+    width: 40px;
+    height: 40px;
+    
+    
+}
+.note::before{
+    content: "";
+    transform: rotate(-45deg);
+    top: -20px;
+    left: 80px;
+
+}
+.note::after{
+    border-radius: 50%;
+    content: "";
+    top: -35px;
+    left: 65px;
+    box-shadow: 30px 0 #ba1c1c;
+    
+}
+.text-one{
+    position: relative;
+    color: #333 ;
+    font-size: 10px ;
+    left: -100px;
+    top: 10px;
+    width: 300px ;
+    text-align: center;
+}
+.text-one::before, .text-one::after{
+    position: absolute;
+    left: 5px;
+    text-align: center;
+    width: 300px;
+
+}
+
+.text-one:before{
+    content: "Day";
+    top: 25px;
+    color: #d04e4e;
+    left: 0;
+}
+.text-one:after{
+    content:"Lab";
+    top: 37px;
+    left: 0;
+}
+strong{
+    color: #d04e4e;
+}
+.Message{
+    top: 45px;
+    position: relative;
+    left:1px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 6px;
+    color: #030202;
+}
+.heart{
+    position: relative;
+    background-color: #ba1c1c;
+    height: 15px;
+    width: 15px;
+    top: 40px;
+    left: 40px;
+    transform: rotate(-45deg);
+    animation: beat .8s infinite;
+    
+}
+.heart:before, .heart:after{
+    content:"";
+    position: absolute;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: #ba1c1c;
+}
+.heart:before{
+    top: -9px;
+    left:0;
+}
+.heart:after{
+    left:9px;
+    top:0;
+}
+.smile{
+    position: absolute;
+    width: 25px;
+    height:15px;
+    background-color: #333;
+    z-index:1;
+    border-radius: 0 0 100px 100px;
+    top:-1px;
+    left:88px;
+    overflow: hidden;
+}
+.smile:before{
+    content:"";
+    position: absolute;
+    border-radius:50%;
+    width: 10px ;
+    height: 20px;
+    background-color: #030202;
+    top: 5px;
+    left: 5px;
+}
+.eyes{
+    position: absolute;
+    border-radius: 50%;
+    background-color: #333;
+    width:10px;
+    height: 10px;
+    z-index:1;
+    top:-20px;
+    left:115px;
+    box-shadow: -40px 0 #333;
+    transform-origin: 100vh;
+    animation: close 1s infinite;
+}
+@keyframes close{
+    0%, 100% {transform: scale(1,.05);}
+    5%, 95% {transform: scale(1,1);}
+}
+@keyframes beat{
+    0%, 40%, 10% {transform: scale(1) rotate(-45deg);}
+    25%, 60% {transform: scale(1.1) rotate(-45deg);}
+}
